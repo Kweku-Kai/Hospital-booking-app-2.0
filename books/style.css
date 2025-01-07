@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    width: 100%;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+nav ul li {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li form {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+nav ul li input {
+    padding: 5px;
+    margin-right: 5px;
+    flex-grow: 1;
+    width: 200px;
+}
+
+nav ul li a, nav ul li button {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon {
+    height: 20px;
+    margin-right: 5px;
+}
+
+main {
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+form input, form select, form button {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.treeview {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.treeview li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.treeview li div {
+    width: 25%;
+}

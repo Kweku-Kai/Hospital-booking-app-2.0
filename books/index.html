@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Booking Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo-1.jpg" type="image/jpg">
+</head>
+<body>
+    <header>
+        <img src="logo-1.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li>
+                    <form id="searchPatientForm" action="/search_results" method="GET">
+                        <input type="text" id="searchPatientId" name="patientId" placeholder="Search Patient ID">
+                        <button type="submit"><img src="search-icon.png" alt="Search Icon" class="icon"></button>
+                    </form>
+                </li>
+                <li><a href="#" onclick="showRegisterForm()"><img src="register-icon.png" alt="Register Icon" class="icon"></a></li>
+                <li><a href="#" onclick="printBookings()"><img src="print-icon.png" alt="Print Icon" class="icon"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="registerSection" class="section" style="display: none;">
+            <h2>Register New Patient</h2>
+            <form id="registerPatientForm">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                <input type="text" id="gender" name="gender" placeholder="Gender" required>
+                <input type="text" id="contactNumber" name="contactNumber" placeholder="Contact Number" required>
+                <input type="text" id="patientId" name="patientId" placeholder="Patient ID" required>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Book a Patient</h2>
+            <form id="bookPatientForm">
+                <input type="text" id="bookingPatientId" name="bookingPatientId" placeholder="Patient ID" required>
+                <select id="caseType" name="caseType">
+                    <option value="New Case">New Case</option>
+                    <option value="Emergency">Emergency</option>
+                    <option value="Old Case">Old Case</option>
+                </select>
+                <input type="text" id="purpose" name="purpose" placeholder="Purpose" required>
+                <input type="date" id="bookingDate" value="<?= date('Y-m-d') ?>" required readonly>
+                <input type="time" id="bookingTime" name="bookingTime" required>
+                <button type="submit">Book</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Today's Bookings</h2>
+            <ul class="treeview">
+                <li>
+                    <div>Patient Name</div>
+                    <div>Patient ID</div>
+                    <div>Clinic</div>
+                    <div>Clinic Time</div>
+                </li>
+                <ul id="bookingsList"></ul>
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Search Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li>
+                    <form id="searchPatientForm" action="/search_results" method="GET">
+                        <input type="text" id="searchPatientId" name="patientId" placeholder="Search Patient ID">
+                        <button type="submit"><img src="search-icon.png" alt="Search Icon" class="icon"></button>
+                    </form>
+                </li>
+                <li><a href="/" onclick="showRegisterForm()"><img src="register-icon.png" alt="Register Icon" class="icon"></a></li>
+                <li><a href="#" onclick="printBookings()"><img src="print-icon.png" alt="Print Icon" class="icon"></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Patient Details</h2>
+            <p>Patient ID: {{ patient['patientId'] }}</p>
+            <p>First Name: {{ patient['firstName'] }}</p>
+            <p>Last Name: {{ patient['lastName'] }}</p>
+            <p>Gender: {{ patient['gender'] }}</p>
+            <p>Contact Number: {{ patient['contactNumber'] }}</p>
+        </section>
+
+        <section>
+            <h2>Patient Bookings</h2>
+            <ul class="treeview">
+                <li>
+                    <div>Patient Name</div>
+                    <div>Patient ID</div>
+                    <div>Clinic</div>
+                    <div>Clinic Time</div>
+                </li>
+                {% for booking in bookings %}
+                <li>
+                    <div>{{ patient['firstName'] }} {{ patient['lastName'] }}</div>
+                    <div>{{ booking['patientId'] }}</div>
+                    <div>{{ booking['caseType'] }}</div>
+                    <div>{{ booking['bookingTime'] }}</div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
